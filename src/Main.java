@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 class Expense {
     private String description;
@@ -18,7 +19,7 @@ class Expense {
 
     @Override
     public String toString(){
-        return "Opis: " + description + "| Kwota: " + amount + "| Kategoria: " + category;
+        return "Opis: " + description + " | Kwota: " + amount + " | Kategoria: " + category;
     }
 }
 
@@ -45,17 +46,22 @@ class ExpenseManager{
 }
 public class Main{
     public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
         ExpenseManager expenseManager = new ExpenseManager();
 
-        expenseManager.addExpense(new Expense("Paliwo", 124.40, "Wydatki"));
-        expenseManager.addExpense(new Expense("Strój", 550.00, "Wydatki"));
-        expenseManager.addExpense(new Expense("Samochód", 12050.00, "Wydatki"));
-        expenseManager.addExpense(new Expense("Narzędzia", 970.00 , "Wydatki"));
+        while(true){
+            System.out.println("Podaj opis: ");
+            String opis = sc.nextLine();
+            if(opis.equals("X")){
+                break;
+            }
+            System.out.println("Podaj kwotę: ");
+            double kwota = sc.nextDouble();
+            System.out.println("Podaj kategorię: ");
+            String kategoria = sc.nextLine();
 
-        System.out.println("--- Lista wydatków ---");
-        expenseManager.displayAllExpenses();
+            expenseManager.addExpense(new Expense(opis, kwota, kategoria));
+        }
 
-        System.out.println("\n--- Podsumowanie ---");
-        System.out.println("Suma całkowita: " + expenseManager.sumTotalExpenses());
     }
 }
