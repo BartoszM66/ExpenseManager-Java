@@ -9,9 +9,18 @@ public class Expense {
         this.category = category;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public double getAmount(){
         return amount;
     }
+
+    public String getCategory(){
+        return category;
+    }
+
 
     @Override
     public String toString(){
