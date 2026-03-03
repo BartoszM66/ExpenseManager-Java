@@ -23,3 +23,13 @@ Content-Type: application/json
   "amount": 1099.99,
   "category": "Auto"
 }
+
+### Próba dodania zepsutego wydatku
+POST http://localhost:8080/expenses
+Content-Type: application/json
+
+{
+  "description": "s",
+  "amount": 50.00,
+  "category": "  "
+}

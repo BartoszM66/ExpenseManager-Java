@@ -1,6 +1,7 @@
 package pl.BartoszM.expensemanager;
 
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -17,7 +18,7 @@ public class ExpenseController {
     }
 
     @PostMapping("/expenses")
-    public void addExpense(@RequestBody Expense expense) {
+    public void addExpense(@Valid @RequestBody Expense expense) {
         expenseManager.addExpense(expense);
     }
 
@@ -27,7 +28,7 @@ public class ExpenseController {
     }
 
     @PutMapping("/expenses/{id}")
-    public void updateExpense(@PathVariable Long id, @RequestBody Expense expense) {
+    public void updateExpense(@PathVariable Long id, @Valid @RequestBody Expense expense) {
         expenseManager.updateExpense(id, expense);
     }
 }
