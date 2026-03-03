@@ -1,0 +1,25 @@
+### Pobierz wszystkie wydatki (GET)
+GET http://localhost:8080/expenses
+
+### Dodaj nowy wydatek (POST)
+POST http://localhost:8080/expenses
+Content-Type: application/json
+
+{
+  "description": "Opony",
+  "amount": 1299.99,
+  "category": "Auto"
+}
+
+### Usuń wydatek o ID {id}
+DELETE http://localhost:8080/expenses/1
+
+### Zaktualizuj wydatek o ID {id}
+PUT http://localhost:8080/expenses/1
+Content-Type: application/json
+
+{
+  "description": "Opony Letnie",
+  "amount": 1099.99,
+  "category": "Auto"
+}
